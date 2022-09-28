@@ -28,6 +28,23 @@
       <artifactId>astra-sdk</artifactId>
       <version>0.3.0</version>
     </dependency>
+
+    <!-- Logback configuration is rather finicky... need all of this! -->
+    <dependency>
+      <groupId>org.slf4j </groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.4.1</version>
+    </dependency>
     <dependency>
       <groupId>info.picocli</groupId>
       <artifactId>picocli</artifactId>
@@ -61,9 +78,9 @@
             <filter>
               <artifact>*:*</artifact>
               <excludes>
-                <exclude>META-INF/*.SF</exclude>
-                <exclude>META-INF/*.DSA</exclude>
-                <exclude>META-INF/*.RSA</exclude>
+                <exclude>META-INF/*</exclude>
+                <exclude>**/pom.properties</exclude>
+                <exclude>**/pom.xml</exclude>
               </excludes>
             </filter>
           </filters>
