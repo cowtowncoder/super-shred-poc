@@ -74,16 +74,17 @@
                 <mainClass>com.cowtowncoder.supershred.Shredder</mainClass>
               </transformer>
             </transformers>
-          <filters>
-            <filter>
-              <artifact>*:*</artifact>
-              <excludes>
-                <exclude>META-INF/*</exclude>
-                <exclude>**/pom.properties</exclude>
-                <exclude>**/pom.xml</exclude>
-              </excludes>
-            </filter>
-          </filters>
+            <createDependencyReducedPom>false</createDependencyReducedPom>
+            <filters>
+              <filter>
+                <artifact>*:*</artifact>
+                <excludes>
+                  <exclude>META-INF/*</exclude>
+                  <exclude>**/pom.properties</exclude>
+                  <exclude>**/pom.xml</exclude>
+                </excludes>
+              </filter>
+            </filters>
           </configuration>
         </execution>
     </executions>

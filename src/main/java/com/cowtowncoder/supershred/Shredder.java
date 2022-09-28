@@ -5,6 +5,7 @@ import java.util.concurrent.Callable;
 
 import com.datastax.astra.sdk.AstraClient;
 import com.datastax.astra.sdk.databases.domain.Database;
+import com.datastax.oss.driver.api.core.CqlSession;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
@@ -39,6 +40,8 @@ public class Shredder implements Callable<Integer>
 		    System.out.println("databaseId=" + db.getId());
 		    System.out.println("databaseRegion=" + db.getInfo().getRegion());
 		    System.out.println("keyspace=" + db.getInfo().getKeyspace());
+
+		    testCqlApi(astraClient);
 		}
 		return 0;
 	}
@@ -53,6 +56,15 @@ public class Shredder implements Callable<Integer>
 				.withToken(astraToken)
 				.withDatabaseId(dbId)
 				.withDatabaseRegion(dbRegion)
+				.enableCql()
 				.build();
 	}
+
+	public static void testCqlApi(AstraClient astraClient) {
+		  System.out.println("\n[STARGATE/CQL]");
+		  CqlSession cqlSession = astraClient.cqlSession();
+		  System.out.println("+ Cql Version (cql)   : " + cqlSession
+		    .execute("SELECT cql_version from system.local")
+		    .one().getString("cql_version"));
+		}
 }
