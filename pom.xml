@@ -20,13 +20,45 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
+
+    <version.astra.sdk>0.3.5-SNAPSHOT</version.astra.sdk>
   </properties>
 
+  <dependencyManagement>
+    <dependencies>
+      <!-- Just to get consistent base set of versions, import Astra SDK's
+          parent pom
+        -->
+      <dependency>
+	<groupId>com.datastax.astra</groupId>
+	<artifactId>astra-sdk-parent</artifactId>
+	<version>${version.astra.sdk}</version>
+	<scope>import</scope>
+	<type>pom</type>
+      </dependency>
+      <!-- 28-Sep-2022, tatu: following should not be needed if/when Astra SDK
+	   adds managed dependency versions for these AND we import parent pom
+        -->
+      <dependency>
+        <groupId>io.grpc</groupId>
+        <artifactId>grpc-core</artifactId>
+        <version>1.49.1</version>
+      </dependency>
+      <dependency>
+        <groupId>io.grpc</groupId>
+        <artifactId>grpc-api</artifactId>
+        <version>1.49.1</version>
+      </dependency>
+<!--
+  --->
+     </dependencies>
+  </dependencyManagement>
   <dependencies>
+    
     <dependency>
       <groupId>com.datastax.astra</groupId>
       <artifactId>astra-sdk</artifactId>
-      <version>0.3.0</version>
+      <version>${version.astra.sdk}</version>
     </dependency>
 
     <!-- Logback configuration is rather finicky... need all of this! -->
