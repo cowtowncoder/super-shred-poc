@@ -16,9 +16,9 @@ public class Shredder implements Callable<Integer>
 			description = "Astra Token (starts with 'AstraCS:')")
 	private String astraToken;
 
-	@Option(names = {"-i", "--db-id"}, required=false,
-			description = "Database Id (like 'testing')")
-	private String dbId = "supershred";
+	@Option(names = {"-i", "--db-id"}, required=true,
+			description = "Database Id (UUID)")
+	private String dbId;
 
 	@Option(names = {"-r", "--db-region"}, required=false,
 			description = "Database region (like 'us-east1'")
