@@ -25,7 +25,7 @@ public class Shredder implements Callable<Integer>
 	private String dbRegion = "us-east1";
 
 	@Option(names = {"-k", "--keyspace"}, required=false,
-			description = "Database region (like 'ks'")
+			description = "Keyspace (like 'ks'")
 	private String keyspace = "default";
 
 	@Override
