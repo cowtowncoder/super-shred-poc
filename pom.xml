@@ -4,9 +4,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-      <groupId>com.fasterxml</groupId>
-      <artifactId>oss-parent</artifactId>
-      <version>48</version>
+    <groupId>com.fasterxml</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>58</version>
   </parent>
   
   <groupId>com.cowtowncoder</groupId>
@@ -27,14 +27,14 @@
   <dependencyManagement>
     <dependencies>
       <!-- Just to get consistent base set of versions, import Astra SDK's
-          parent pom
+           parent pom
         -->
       <dependency>
-	<groupId>com.datastax.astra</groupId>
-	<artifactId>astra-sdk-parent</artifactId>
-	<version>${version.astra.sdk}</version>
-	<scope>import</scope>
-	<type>pom</type>
+        <groupId>com.datastax.astra</groupId>
+        <artifactId>astra-sdk-parent</artifactId>
+        <version>${version.astra.sdk}</version>
+        <scope>import</scope>
+        <type>pom</type>
       </dependency>
       <!-- 28-Sep-2022, tatu: following should not be needed if/when Astra SDK
 	   adds managed dependency versions for these AND we import parent pom
@@ -50,7 +50,7 @@
         <version>1.49.1</version>
       </dependency>
 <!--
-  --->
+  -->
      </dependencies>
   </dependencyManagement>
   <dependencies>
@@ -80,7 +80,7 @@
     <dependency>
       <groupId>info.picocli</groupId>
       <artifactId>picocli</artifactId>
-      <version>4.6.3</version>
+      <version>4.7.5</version>
     </dependency>
   </dependencies>
 
@@ -90,10 +90,10 @@
       </plugins>
     </pluginManagement>
     <plugins>
-	<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-shade-plugin</artifactId>
-    <executions>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-shade-plugin</artifactId>
+	  <executions>
         <execution>
           <phase>package</phase>
           <goals>
